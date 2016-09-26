@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "mocha tests --timeout 10000",
+    "test": "mocha tests --timeout 10000"
   },
   "dependencies": {
     "chai": "^3.4.1",
