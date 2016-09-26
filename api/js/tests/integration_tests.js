@@ -4,7 +4,7 @@ var request        = require('supertest-as-promised'),
     Bug            = require('../api/bug'),
     BugPayload     = require('../payloads/bug_payload');
 
-describe('restful-booker', function(){
+describe('Bugzilla API', function(){
 
     it('returns a 200 when checking for a bug', function(done){
       Bug.getBug(1)
