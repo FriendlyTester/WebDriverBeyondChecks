@@ -1,5 +1,6 @@
 package pageobjects;
 
+import com.sun.tools.javac.comp.Enter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,7 +55,13 @@ public class EnterBugPage extends PageObject
     {
         super(driver);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("short_desc")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("bugzilla-body")));
+    }
+
+    public EnterBugPage ClickProduct(String productName)
+    {
+        driver.findElement(By.linkText(productName)).click();
+        return new EnterBugPage(driver);
     }
 
     public void SelectComponent(String component)
