@@ -7,4 +7,4 @@ api/target
 .DS_Store
 creator.js
 api/java/target
-webdriver/phantomjsdriver.log
+*/phantomjsdriver.log
