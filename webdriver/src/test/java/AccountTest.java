@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -34,7 +35,9 @@ public class AccountTest extends TestSetup
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         createAccountPage.PopulateEmailAddress("test.com");
         createAccountPage = createAccountPage.ClickSend();
-        Assert.assertThat(createAccountPage.ReadTitle(), is(equalTo("Bugzilla – Create a new Bugzilla account")));
+        // Depending on browser behaviour the title returned is different because the behaviour of the popup validation on the
+        // email submission form varies
+        Assert.assertThat(createAccountPage.ReadTitle(), anyOf(is("Bugzilla – Create a new Bugzilla account"), is("Bugzilla – Invalid Email Address")));
     }
 
     @Test

@@ -3,6 +3,7 @@ package driverfactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -14,9 +15,12 @@ public class DriverFactory
     {
         try{
             if(System.getenv("browser").equals("phantomjs")){
-                DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
-                PhantomJSDriver driver = new PhantomJSDriver(capabilities);
-                return driver;
+                String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36";
+
+                DesiredCapabilities caps = new DesiredCapabilities();
+                caps.setCapability(PhantomJSDriverService.PHANTOMJS_PAGE_SETTINGS_PREFIX + "userAgent", userAgent);
+
+                return new PhantomJSDriver(caps);
             } else {
                 ChromeDriver driver = generateChromeDriver();
                 return driver;

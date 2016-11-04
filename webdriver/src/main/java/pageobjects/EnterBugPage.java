@@ -59,7 +59,11 @@ public class EnterBugPage extends PageObject
 
     public EnterBugPage ClickProduct(String productName)
     {
-        driver.findElement(By.linkText(productName)).click();
+        // Needs updating, clunky attempt to create conditional behaviour depending on whether
+        // multiple products exist.
+        if(!driver.getCurrentUrl().contains("TestProduct")){
+            driver.findElement(By.linkText(productName)).click();
+        }
         return new EnterBugPage(driver);
     }
 
