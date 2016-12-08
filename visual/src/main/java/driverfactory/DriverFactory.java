@@ -33,8 +33,9 @@ public class DriverFactory
     }
 
     private ChromeDriver generateChromeDriver(){
-        String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/chromedriver";
-        System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
+        //If ChromeDriver is not on your PATH, uncomment these two lines and change the DIR to yours.
+        //String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/chromedriver";
+        //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
         return new ChromeDriver();
     }
 }
