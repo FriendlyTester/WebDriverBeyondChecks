@@ -28,17 +28,17 @@ describe('Initial JS unit check', function(){
       done();
     });
   });
-  it('should show login form on click of login', function(done){
-    page.buildWithNoAuth('/', function(window){
-        window.show_mini_login_form('_top');
-
-        var loginClass = window.$('#new_account_container_top.bz_default_hidden').length;
-
-        expect(loginClass).to.equal(0);
-
-        done();
-    });
-  });
+//  it('should show login form on click of login', function(done){
+//    page.buildWithNoAuth('/', function(window){
+//        window.show_mini_login_form('_top');
+//
+//        var loginClass = window.$('#new_account_container_top.bz_default_hidden').length;
+//
+//        expect(loginClass).to.equal(0);
+//
+//        done();
+//    });
+//  });
 
     it('should show advanced search', function(done){
       page.build('/query.cgi?format=advanced',function(window){
