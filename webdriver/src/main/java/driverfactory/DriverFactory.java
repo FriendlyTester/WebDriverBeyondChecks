@@ -37,8 +37,8 @@ public class DriverFactory
         //If you don't have ChromeDriver on your path, then uncomment the lines relevant to your OS
 
         //OSX
-        //String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/chromedriver";
-        //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
+        String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/osx/chromedriver";
+        System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
 
         //Windows
         //String pathToChromeDriver = System.getProperty("user.dir") + "C:\\SomePathToSomewhere\\Path";
