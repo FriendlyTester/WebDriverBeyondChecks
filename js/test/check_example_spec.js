@@ -27,7 +27,35 @@ describe('Initial JS unit check', function(){
 
       done();
     });
+        });
+
+
+  it('should show search by people as closed by default', function(done){
+        page.build('/query.cgi?format=advanced', function(window){
+            var hiddenDetailSection = window.$('#people_filter_section.bz_tui_hidden').length
+            var visibleDetailSection = window.$('#people_filter_section.bz_tui').length
+
+            expect(hiddenDetailSection).to.equal(1);
+            expect(visibleDetailSection).to.equal(0);
+
+        done();
+
+    })
   });
+
+    it('should show search by people if its clicked', function(done){
+          page.build('/query.cgi?format=advanced', function(window){
+               window.TUI_toggle_class('people_query');
+            var hiddenDetailSection = window.$('#people_filter_section.bz_tui_hidden').length
+            var visibleDetailSection = window.$('#people_filter_section.bz_tui').length
+
+            expect(hiddenDetailSection).to.equal(0);
+            expect(visibleDetailSection).to.equal(1);
+
+          done();
+
+      })
+    });
 
   it('should show login form on click of login', function(done) {
     page.buildWithNoAuth('/', function (window) {
@@ -72,6 +100,8 @@ describe('Initial JS unit check', function(){
             done();
         })
   });
+
+
 
   it('adds row to custom search', function(done) {
         page.build('query.cgi?no_redirect=1&query_format=advanced&short_desc_type=allwordssubstr&short_desc=&longdesc_type=allwordssubstr&longdesc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&deadlinefrom=&deadlineto=&bug_id=&bug_id_type=anyexact&emailtype1=substring&email1=&emailtype2=substring&email2=&emailtype3=substring&email3=&chfieldvalue=&chfieldfrom=&chfieldto=Now&j_top=AND&f1=noop&o1=noop&v1=&v2=&cmdtype=doit&order=Importance', function(window){
