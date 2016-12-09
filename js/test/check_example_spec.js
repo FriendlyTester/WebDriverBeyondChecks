@@ -29,14 +29,16 @@ describe('Initial JS unit check', function(){
     });
   });
 
-    it ('should show login form on click of login', function(done) {
-    page.build('/', function(window){
+  it('should show login form on click of login', function(done){
+    page.buildWithNoAuth('/', function(window){
         window.show_mini_login_form('_top');
 
-        var loginClass = window.$('#mini_login_container_top.bz_default_hidden').length
+        var loginClass = window.$('#new_account_container_top.bz_default_hidden').length;
+
         expect(loginClass).to.equal(1);
+
         done();
     });
+  });
 
-    });
 });
