@@ -41,8 +41,8 @@ public class DriverFactory
         //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
 
         //Windows
-        //String pathToChromeDriver = System.getProperty("user.dir") + "C:\\SomePathToSomewhere\\Path";
-        //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
+        String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/windows/chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
 
         return new ChromeDriver();
     }
