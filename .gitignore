@@ -6,5 +6,6 @@ visual/target
 api/target
 .DS_Store
 creator.js
+webdriver/src/main/java/driverfactory/DriverFactory.java
 api/java/target
 */phantomjsdriver.log

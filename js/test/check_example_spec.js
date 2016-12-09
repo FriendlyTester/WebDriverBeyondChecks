@@ -52,4 +52,41 @@ describe('Initial JS unit check', function(){
     });
   })
 
+  it('should expand search by change history', function(done) {
+    page.buildWithNoAuth('/query.cgi?format=advanced', function(window){
+
+    window.TUI_toggle_class('history_query');
+
+    var historyBlock = window.$('.bug_changes bz_search_section history_query bz_tui_hidden').length
+
+    expect(historyBlock).to.equal(0);
+    done();
+    });
+  });
+  it('should show login form on click of login', function(done) {
+        page.build('/', function(window){
+            window.show_mini_login_form('_top');
+            var loginClass = window.$('#mini_login_container_top #new_account_container_top.bz_default_hidden').length
+
+            expect(loginClass).to.equal(0);
+            done();
+        })
+  });
+
+  it('adds row to custom search', function(done) {
+        page.build('query.cgi?no_redirect=1&query_format=advanced&short_desc_type=allwordssubstr&short_desc=&longdesc_type=allwordssubstr&longdesc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&deadlinefrom=&deadlineto=&bug_id=&bug_id_type=anyexact&emailtype1=substring&email1=&emailtype2=substring&email2=&emailtype3=substring&email3=&chfieldvalue=&chfieldfrom=&chfieldto=Now&j_top=AND&f1=noop&o1=noop&v1=&v2=&cmdtype=doit&order=Importance', function(window){
+            var rowsBefore = window.$('.custom_search_condition').length
+            window.TUI_toggle_class('custom_search_query');
+            try {
+                window.custom_search_new_row();
+            } catch(err) {
+                //TODO: fix it later
+            }
+            var rowsAfter = window.$('.custom_search_condition').length
+
+            expect(rowsAfter).to.equal(rowsBefore+1);
+            done();
+        })
+  });
+
 });
