@@ -37,7 +37,7 @@ public class AccountTest extends TestSetup
         createAccountPage = createAccountPage.ClickSend();
         // Depending on browser behaviour the title returned is different because the behaviour of the popup validation on the
         // email submission form varies
-        Assert.assertThat(createAccountPage.ReadTitle(), anyOf(is("Bugzilla – Create a new Bugzilla accounts"), is("Bugzilla – Invalid Email Address")));
+        Assert.assertThat(createAccountPage.ReadTitle(), anyOf(is("Bugzilla – Create a new Bugzilla account"), is("Bugzilla – Invalid Email Address")));
     }
 
     @Test
