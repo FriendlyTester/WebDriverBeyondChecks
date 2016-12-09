@@ -25,6 +25,24 @@ module.exports = {
     });
   },
 
+  buildWithNoAuth: function(path, callback){
+//      this.getAuthCookies(function(cookies){
+        jsdom.env({
+          url: config.domain + path,
+          scripts: ['http://code.jquery.com/jquery-1.12.4.min.js'],
+          features: {
+              FetchExternalResources: ["script"],
+              ProcessExternalResources: ["script"]
+          },
+          done: function(errors, window){
+            if(errors != null) console.log('Errors', errors);
+
+            callback(window);
+          }
+        });
+//      });
+    },
+
   getAuthCookies: function(callback){
     request.post(
       {
