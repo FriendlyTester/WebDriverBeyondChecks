@@ -11,56 +11,56 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class AdvancedSearchTest extends TestSetup
 {
-    @Ignore
-    public void ExpandDetailedBugInformation()
-    {
-        NavigateToAdvancedSearch();
-        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
-        Assert.assertThat(advancedSearchPage.IsDetailBugInformationExpanded(), is(equalTo(false)));
-        advancedSearchPage.ClickDetailedBugInformation();
-        Assert.assertThat(advancedSearchPage.IsDetailBugInformationExpanded(), is(equalTo(true)));
-    }
-
-
-    @Ignore
-    public void ExpandSearchByPeople()
-    {
-        NavigateToAdvancedSearch();
-        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
-        Assert.assertThat(advancedSearchPage.IsSearchByPeopleExpanded(), is(equalTo(false)));
-        advancedSearchPage.ClickSearchByPeople();
-        Assert.assertThat(advancedSearchPage.IsSearchByPeopleExpanded(), is(equalTo(true)));
-    }
-
-    @Ignore
-    public void ExpandSearchByChangeHistory()
-    {
-        NavigateToAdvancedSearch();
-        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
-        Assert.assertThat(advancedSearchPage.IsSearchByChangeHistoryExpanded(), is(equalTo(false)));
-        advancedSearchPage.ClickSearchByChangeHistory();
-        Assert.assertThat(advancedSearchPage.IsSearchByChangeHistoryExpanded(), is(equalTo(true)));
-    }
-
-    @Test
-    public void ExpandCustomSearch()
-    {
-        NavigateToAdvancedSearch();
-        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
-        Assert.assertThat(advancedSearchPage.IsCustomSearchExpanded(), is(equalTo(false)));
-        advancedSearchPage.ClickCustomSearch();
-        Assert.assertThat(advancedSearchPage.IsCustomSearchExpanded(), is(equalTo(true)));
-    }
-
-    @Test
-    public void AddRowToCustomSearch()
-    {
-        NavigateToAdvancedSearch();
-        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
-        advancedSearchPage.ClickCustomSearch();
-        advancedSearchPage.ClickAddRowToCustomSearch();
-        Assert.assertThat(advancedSearchPage.IsQueryStringRowTwoDisplayedInCustomSearch(), is(equalTo(true)));
-    }
+//    @Ignore
+//    public void ExpandDetailedBugInformation()
+//    {
+//        NavigateToAdvancedSearch();
+//        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
+//        Assert.assertThat(advancedSearchPage.IsDetailBugInformationExpanded(), is(equalTo(false)));
+//        advancedSearchPage.ClickDetailedBugInformation();
+//        Assert.assertThat(advancedSearchPage.IsDetailBugInformationExpanded(), is(equalTo(true)));
+//    }
+//
+//
+//    @Ignore
+//    public void ExpandSearchByPeople()
+//    {
+//        NavigateToAdvancedSearch();
+//        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
+//        Assert.assertThat(advancedSearchPage.IsSearchByPeopleExpanded(), is(equalTo(false)));
+//        advancedSearchPage.ClickSearchByPeople();
+//        Assert.assertThat(advancedSearchPage.IsSearchByPeopleExpanded(), is(equalTo(true)));
+//    }
+//
+//    @Ignore
+//    public void ExpandSearchByChangeHistory()
+//    {
+//        NavigateToAdvancedSearch();
+//        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
+//        Assert.assertThat(advancedSearchPage.IsSearchByChangeHistoryExpanded(), is(equalTo(false)));
+//        advancedSearchPage.ClickSearchByChangeHistory();
+//        Assert.assertThat(advancedSearchPage.IsSearchByChangeHistoryExpanded(), is(equalTo(true)));
+//    }
+//
+//    @Ignore
+//    public void ExpandCustomSearch()
+//    {
+//        NavigateToAdvancedSearch();
+//        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
+//        Assert.assertThat(advancedSearchPage.IsCustomSearchExpanded(), is(equalTo(false)));
+//        advancedSearchPage.ClickCustomSearch();
+//        Assert.assertThat(advancedSearchPage.IsCustomSearchExpanded(), is(equalTo(true)));
+//    }
+//
+//    @Ignore
+//    public void AddRowToCustomSearch()
+//    {
+//        NavigateToAdvancedSearch();
+//        AdvancedSearchPage advancedSearchPage = new AdvancedSearchPage(driver);
+//        advancedSearchPage.ClickCustomSearch();
+//        advancedSearchPage.ClickAddRowToCustomSearch();
+//        Assert.assertThat(advancedSearchPage.IsQueryStringRowTwoDisplayedInCustomSearch(), is(equalTo(true)));
+//    }
 
     @Test
     public void OpenAndCloseParenthesisOnCustomSearch()

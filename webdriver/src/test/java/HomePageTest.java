@@ -74,3 +74,5 @@ public class HomePageTest extends TestSetup
         Assert.assertThat(mainPage.IsLogoutButtonDisplayed(), is(equalTo(true)));
     }
 }
+
+

@@ -4,12 +4,13 @@ import com.beyondchecks.api.api.Bug;
 import com.beyondchecks.api.payloads.BugCreated;
 import com.beyondchecks.api.payloads.BugModel;
 import com.beyondchecks.api.payloads.BugModelList;
-import com.beyondchecks.api.payloads.BugPayload;
 import org.junit.Assert;
+import com.beyondchecks.api.payloads.requests.BugPayload;
+import com.beyondchecks.api.payloads.responses.BugListResponse;
+import com.beyondchecks.api.payloads.responses.bugCreateResponse;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -17,7 +18,7 @@ public class ApiTest {
 
     @Test
     public void checkForBug(){
-        ResponseEntity<String> result = Bug.getBug(1);
+        ResponseEntity<BugListResponse> result = Bug.getBug(1);
 
         assertEquals(result.getStatusCodeValue(), 200);
     }
@@ -26,7 +27,7 @@ public class ApiTest {
     public void checkForBugCreation(){
         BugPayload bugToCreate = createSimpleBugPayload();
 
-        ResponseEntity<String> result = Bug.postBug(bugToCreate);
+        ResponseEntity<bugCreateResponse> result = Bug.postBug(bugToCreate);
 
         assertEquals(result.getStatusCodeValue(), 200);
     }
@@ -68,5 +69,20 @@ public class ApiTest {
             fail("Unable to parse returned ID of bug which you just created.");
         }
         return idOfCreatedBug;
+    }
+
+    public void CreateBasicBug(){
+        BugPayload bugToCreate = new BugPayload("TestProduct", "TestComponent", "This is a minor bug", "unspecified", "Windows", "PC");
+
+        ResponseEntity<bugCreateResponse> result = Bug.postBug(bugToCreate);
+
+        assertEquals(result.getStatusCodeValue(), 200);
+
+        int id = result.getBody().getId();
+
+
+        //GET
+        ResponseEntity<BugListResponse> getResult = Bug.getBug(id);
+        System.out.println(getResult.getBody().getBugs().get(0).getSummary());
     }
 }

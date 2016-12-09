@@ -1,4 +1,4 @@
-package com.beyondchecks.api.payloads;
+package com.beyondchecks.api.payloads.requests;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;

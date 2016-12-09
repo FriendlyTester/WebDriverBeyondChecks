@@ -1,4 +1,4 @@
-package com.beyondchecks.api.payloads;
+package com.beyondchecks.api.payloads.requests;
 
 /**
  * Created by richard on 30/11/2016.
