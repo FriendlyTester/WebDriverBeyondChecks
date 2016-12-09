@@ -41,4 +41,15 @@ describe('Initial JS unit check', function(){
     });
   });
 
+  it('should expand search by change history', function(done) {
+    page.buildWithNoAuth('/query.cgi?format=advanced', function(window){
+
+    window.TUI_toggle_class('history_query');
+
+    var historyBlock = window.$('.bug_changes bz_search_section history_query bz_tui_hidden').length
+
+    expect(historyBlock).to.equal(0);
+    done();
+    });
+  });
 });
