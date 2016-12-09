@@ -6,6 +6,12 @@ exports.getBug = function(id){
 };
 
 exports.getBugHistory = function(id){
+
+    if( typeof id == 'undefined' )
+    {
+        throw { name: 'ValidException', message: 'this is a valid exception message!' };
+    }
+
     return request('http://52.17.197.56:8080')
         .get('/bugzilla/rest/bug/' + id + '/history')
 };
