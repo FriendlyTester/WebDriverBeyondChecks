@@ -33,11 +33,7 @@ describe('Initial JS unit check', function(){
   it('should show search by people as closed by default', function(done){
         page.build('/query.cgi?format=advanced', function(window){
             var hiddenDetailSection = window.$('#people_filter_section.bz_tui_hidden').length
-            var visibleDetailSection = window.$('#people_filter_section.bz_tui').length
-
             expect(hiddenDetailSection).to.equal(1);
-            expect(visibleDetailSection).to.equal(0);
-
         done();
 
     })
@@ -45,12 +41,11 @@ describe('Initial JS unit check', function(){
 
     it('should show search by people if its clicked', function(done){
           page.build('/query.cgi?format=advanced', function(window){
-               window.TUI_toggle_class('people_query');
             var hiddenDetailSection = window.$('#people_filter_section.bz_tui_hidden').length
-            var visibleDetailSection = window.$('#people_filter_section.bz_tui').length
-
+            expect(hiddenDetailSection).to.equal(1);
+            window.TUI_toggle_class('people_query');
+            var hiddenDetailSection = window.$('#people_filter_section.bz_tui_hidden').length
             expect(hiddenDetailSection).to.equal(0);
-            expect(visibleDetailSection).to.equal(1);
 
           done();
 
