@@ -29,16 +29,27 @@ describe('Initial JS unit check', function(){
     });
   });
 
-  it('should show login form on click of login', function(done){
-    page.buildWithNoAuth('/', function(window){
-        window.show_mini_login_form('_top');
+  it('should show login form on click of login', function(done) {
+    page.buildWithNoAuth('/', function (window) {
+      window.show_mini_login_form('_top');
 
-        var loginClass = window.$('#new_account_container_top.bz_default_hidden').length;
+      var loginClass = window.$('#new_account_container_top.bz_default_hidden').length;
 
-        expect(loginClass).to.equal(1);
+      expect(loginClass).to.equal(1);
 
-        done();
+      done();
     });
-  });
+  })
+
+  it('expand the detailed bug information after click', function(done) {
+    page.buildWithNoAuth('/query.cgi?format=advanced', function (window) {
+      var hiddenDetailsSection = window.$('#detailed_information_section.bz_tui_hidden');
+      expect(hiddenDetailsSection.length).to.equal(1);
+      window.TUI_toggle_class('information_query');
+      var hiddenDetailsSection = window.$('#detailed_information_section.bz_tui_hidden');
+      expect(hiddenDetailsSection.length).to.equal(0);
+      done();
+    });
+  })
 
 });
