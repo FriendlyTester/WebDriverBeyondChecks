@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import pageobjects.AdvancedSearchPage;
 
@@ -10,7 +11,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class AdvancedSearchTest extends TestSetup
 {
-    @Test
+    @Ignore
     public void ExpandDetailedBugInformation()
     {
         NavigateToAdvancedSearch();
@@ -20,7 +21,8 @@ public class AdvancedSearchTest extends TestSetup
         Assert.assertThat(advancedSearchPage.IsDetailBugInformationExpanded(), is(equalTo(true)));
     }
 
-    @Test
+
+    @Ignore
     public void ExpandSearchByPeople()
     {
         NavigateToAdvancedSearch();
@@ -30,7 +32,7 @@ public class AdvancedSearchTest extends TestSetup
         Assert.assertThat(advancedSearchPage.IsSearchByPeopleExpanded(), is(equalTo(true)));
     }
 
-    @Test
+    @Ignore
     public void ExpandSearchByChangeHistory()
     {
         NavigateToAdvancedSearch();
