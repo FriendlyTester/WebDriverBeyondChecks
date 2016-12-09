@@ -5,6 +5,7 @@ import databuilder.models.BugModel;
 import databuilder.models.BugResponseModel;
 import helpers.LoginHelper;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import pageobjects.BugPage;
 
@@ -16,7 +17,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class BugPageTest extends TestSetup
 {
-    @Test
+    @Ignore
     //TODO Hug into the bugd data creation API
     public void CheckAllBugValues()
     {
