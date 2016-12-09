@@ -15,7 +15,19 @@ describe('Bugzilla API', function(){
       var bug_payload = BugPayload.create('TestProduct', 'TestComponent', 'testing', 'unspecified', 'Windows', 'PC');
 
       Bug.createBug(bug_payload)
-        .expect(200, done);
+         .expect(200, done);
+    });
+
+    it('returns a invalid bug history', function(done){
+        var invalid_object = BugPayload.create('TestProduct', 'TestComponent', 'testing', 'unspecified', 'Windows', 'PC');
+
+        Bug.getBugHistory(invalid_object)
+           .expect(400, done);
+    });
+
+    it('returns a valid bug history', function(done){
+        Bug.getBugHistory(1)
+           .expect(200, done);
     });
 
 });

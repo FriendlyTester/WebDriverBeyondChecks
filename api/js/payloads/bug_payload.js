@@ -7,4 +7,4 @@ exports.create = function(product, component, summary, version, op_sys, rep_plat
     'op_sys': op_sys,
     'rep_platform': rep_platform
   }
-}
+};
