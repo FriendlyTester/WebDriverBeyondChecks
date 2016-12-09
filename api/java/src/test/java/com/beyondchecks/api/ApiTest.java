@@ -2,6 +2,7 @@ package com.beyondchecks.api;
 
 import com.beyondchecks.api.api.Bug;
 import com.beyondchecks.api.payloads.BugPayload;
+import com.beyondchecks.api.payloads.BugUpdatePayload;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 
@@ -24,5 +25,14 @@ public class ApiTest {
 
         assertEquals(result.getStatusCodeValue(), 200);
     }
+    @Test
+    public void checkupdateBugStatus(){
+        BugUpdatePayload bugUpdate = new BugUpdatePayload(273,"CONFIRMED");
+
+        ResponseEntity<String> result = Bug.changeBugStatus(bugUpdate);
+
+        assertEquals(result.getStatusCodeValue(), 200);
+    }
+
 
 }

@@ -2,6 +2,7 @@ package driverfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,28 +23,28 @@ public class DriverFactory
 
                 return new PhantomJSDriver(caps);
             } else {
-                ChromeDriver driver = generateChromeDriver();
+                FirefoxDriver driver = generateChromeDriver();
                 return driver;
             }
         } catch (NullPointerException e){
-            ChromeDriver driver = generateChromeDriver();
+            FirefoxDriver driver = generateChromeDriver();
             return driver;
         }
 
     }
 
-    private ChromeDriver generateChromeDriver(){
+    private FirefoxDriver generateChromeDriver(){
 
         //If you don't have ChromeDriver on your path, then uncomment the lines relevant to your OS
 
         //OSX
         //String pathToChromeDriver = System.getProperty("user.dir") + "/src/main/java/driverfactory/chromedriver";
-        //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
+        System.setProperty("webdriver.gecko.driver", "/home/dani/Downloads/geckodriver");
 
         //Windows
         //String pathToChromeDriver = System.getProperty("user.dir") + "C:\\SomePathToSomewhere\\Path";
         //System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
 
-        return new ChromeDriver();
+        return new FirefoxDriver();
     }
 }
